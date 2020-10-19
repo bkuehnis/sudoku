@@ -12,9 +12,7 @@ import java.util.stream.Stream;
 
 public class Sudoku {
 
-	private int[][] sudokuArray = new int[9][9];
-	
-	
+	private int[][] sudokuArray = new int[9][9];		
 	
 	public boolean isValid() { 
 		//check row only one value from 1-9
@@ -38,8 +36,7 @@ public class Sudoku {
 			}
 		}
 		
-		//check box that in the box only values from 1-9 appear once
-		
+		//check box that in the box only values from 1-9 appear once		
 		for (int i = 0; i < 9; i = i + 3) {
 			for (int y = 0; y < 9; y = y + 3) {
 				if(!isListValid(getBox(i, y))) {
@@ -101,6 +98,7 @@ public class Sudoku {
 		return sb.toString();
 	}
 	
+	
 	private boolean isListValid(int[] list) {
 		Arrays.sort(list);
 		
@@ -114,6 +112,7 @@ public class Sudoku {
 		return true;
 	}
 	
+	
 	private int[] getBox(final int rowIndex, final int columnIndex) {
 		List<Integer> box = new ArrayList<Integer>();
 		for (int i = rowIndex; i != rowIndex + 3; i++) {
@@ -122,6 +121,5 @@ public class Sudoku {
 			}
 		}
 		return box.stream().mapToInt(i -> i).toArray();						
-	}
-	
+	}	
 }

@@ -2,12 +2,9 @@ package iwi.zhaw.ch;
 
 import java.io.IOException;
 
-
-
 public class Start {
-	public static void main(String[] args) {
-		
-		
+	
+	public static void main(String[] args) {				
 		Sudoku sudoku = new Sudoku();
 		try {
 			sudoku.load("sudoku1");
