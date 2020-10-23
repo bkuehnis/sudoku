@@ -48,6 +48,11 @@ public class Sudoku {
 	}		
 	
 
+	/**
+	 * Loads the sudoku values of {@code fileName} 
+	 * @param fileName name of file located under ./data
+	 * @throws IOException
+	 */
 	public void load(String fileName) throws IOException {
 		File file = new File("data/" + fileName);
 
@@ -75,6 +80,9 @@ public class Sudoku {
 	}		
 	
 
+	/**
+	 * Return the Sudoku as String
+	 */
 	@Override
 	public String toString() {
 		if (sudokuArray == null) {
@@ -99,10 +107,22 @@ public class Sudoku {
 	}
 	
 	
+	
 	private boolean isListValid(int[] list) {
-		Arrays.sort(list);
+		Arrays.sort(list);				
 		
 		int expectedValue = 1;
+		
+		for (int i = 0; i != list.length; i++) {
+			int cell = list[i];
+			
+			if(expectedValue != cell) {
+				return false;
+			}
+			expectedValue ++;
+		}
+		
+		expectedValue = 1;
 		for (int cell : list) {
 			if(expectedValue != cell) {
 				return false;
